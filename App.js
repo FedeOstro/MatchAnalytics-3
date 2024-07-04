@@ -1,27 +1,24 @@
 import * as React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import homeScreen from '../../components/navigation/homeScreen';
-import verEquipo from '../../components/navigation/verEquipo'
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+import 'react-native-gesture-handler'
 
+import {createNativeStackNavigator} from '@react-navigation/stack';
+import homeScreen from '../MatchAnalytics-3/src/views/homeScreen';
+import verEquipo from '../MatchAnalytics-3/src/views/verEquipo'
 
 const Stack = createNativeStackNavigator();
 
-const MyStack = () => {
+function MyStack() {
   return (
-
-    <Stack.Navigator  initialRouteName="Home">
-      <Stack.Screen 
-        name="Home"
-        component={homeScreen}
-      />
-      <Stack.Screen 
-           name="verEquipo" 
-           component={verEquipo}
-      />
-    </Stack.Navigator>
-
+      <Stack.Navigator  initialRouteName="Home">
+        < Stack.Screen 
+         name="Home"
+         component={homeScreen}
+        />
+        <Stack.Screen 
+          name="verEquipo" 
+          component={verEquipo}
+        />
+      </Stack.Navigator>
   );
 };
 

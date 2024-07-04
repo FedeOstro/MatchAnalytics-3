@@ -7,7 +7,7 @@ const Partido = ({ numero, fecha, puntos, equipos }) => {
   return (
     <View style={styles.partidoContainer}>
       <View style={styles.iconContainer}>
-        <Image source={require('../assets/images/football.png')} style={styles.icon} />
+        <Image source={require('../images/football.png')} style={styles.icon} />
       </View>
       <View style={styles.infoContainer}>
         <Text style={styles.partidoText}>Partido #{numero}</Text>
@@ -17,7 +17,7 @@ const Partido = ({ numero, fecha, puntos, equipos }) => {
       </View>
       <View>
       <TouchableOpacity style={styles.button}>
-        <Image source={require('../assets/images/flechaderecha.png')} style={styles.image} />
+        <Image source={require('../images/flechaderecha.png')} style={styles.image} />
         </TouchableOpacity> 
       </View>
     </View>

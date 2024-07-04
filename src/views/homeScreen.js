@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { StyleSheet, ScrollView, View, Text, StatusBar, Image, Button, Dimensions } from 'react-native';
-import Equipo from '@/components/Equipo';
-import Partido from '@/components/Partido';
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import Equipo from '../components/Equipo';
+import Partido from '../components/Partido';
 
 const { width: screenWidth } = Dimensions.get('window');
 
@@ -12,13 +11,13 @@ function homeScreen ({navigation}) {
         <StatusBar barStyle="dark-content" />
         <View style={styles.header}>
           <View style={styles.logContainer}>
-            <Image source={require('../../assets/images/log.png')} style={styles.logo} />
+            <Image source={require('../images/log.png')} style={styles.logo} />
           </View>
        </View>
         <ScrollView contentContainerStyle={styles.scrollContainer}>
           <Text style={styles.welcome}>Bienvenido Federico!!</Text>
           <View style={styles.bar}>
-            <Image source={require('../../assets/images/barEquip.png')} style={styles.barEquip}/>
+            <Image source={require('../images/barEquip.png')} style={styles.barEquip}/>
           </View>
           <View style={styles.equiposContainer}>
             <Equipo nombre="Equipo 1" press={() => navigation.navigate('verEquipo')}/>
@@ -37,7 +36,7 @@ function homeScreen ({navigation}) {
                 />
             </View>
             <View style={styles.bar}>
-              <Image source={require('../../assets/images/barPartidos.png')} style={styles.barEquip}/>
+              <Image source={require('../images/barPartidos.png')} style={styles.barEquip}/>
             </View>
           <View style={styles.partidosContainer}>
             <Partido numero="1" fecha="24/4" puntos="34-12" equipos="Equipo 3 vs As.Ingenieros" />

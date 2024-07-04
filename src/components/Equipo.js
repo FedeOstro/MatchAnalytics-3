@@ -5,7 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 const Equipo = ({ nombre, press }) => {
   return (
     <View style={styles.equipoContainer}>
-      <Image source={require('../assets/images/football.png')} style={styles.image} />
+      <Image source={require('../images/football.png')} style={styles.image} />
       <Text style={styles.nombre}>{nombre}</Text>
       <View style={styles.buttonContainer}>
         <Button

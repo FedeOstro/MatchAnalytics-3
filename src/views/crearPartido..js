@@ -1,4 +1,3 @@
-import app from "@/app/(tabs)"
 
 const App = () => {
 

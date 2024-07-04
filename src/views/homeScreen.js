@@ -5,7 +5,7 @@ import Partido from '../components/Partido';
 
 const { width: screenWidth } = Dimensions.get('window');
 
-function homeScreen ({navigation}) {
+const homeScreen = ({navigation}) => {
   return (
       <View style={styles.container}>
         <StatusBar barStyle="dark-content" />

@@ -5,19 +5,16 @@ import Partido from '../components/Partido';
 
 const { width: screenWidth } = Dimensions.get('window');
 
-const homeScreen = ({navigation}) => {
+const HomeScreen = ({navigation}) => {
   return (
       <View style={styles.container}>
-        <StatusBar barStyle="dark-content" />
-        <View style={styles.header}>
-          <View style={styles.logContainer}>
-            <Image source={require('../images/log.png')} style={styles.logo} />
-          </View>
+        <View style={styles.header1}>
+        <Image source={require('../images/header.png')} style={styles.headerBar}/>
        </View>
         <ScrollView contentContainerStyle={styles.scrollContainer}>
           <Text style={styles.welcome}>Bienvenido Federico!!</Text>
           <View style={styles.bar}>
-            <Image source={require('../images/barEquip.png')} style={styles.barEquip}/>
+            <Image source={require('../images/BarraEquiposbarEquipo.png')} style={styles.barEquip}/>
           </View>
           <View style={styles.equiposContainer}>
             <Equipo nombre="Equipo 1" press={() => navigation.navigate('verEquipo')}/>
@@ -36,7 +33,7 @@ const homeScreen = ({navigation}) => {
                 />
             </View>
             <View style={styles.bar}>
-              <Image source={require('../images/barPartidos.png')} style={styles.barEquip}/>
+              <Image source={require('../images/BarraPartidosbarPartido.png')} style={styles.barEquip}/>
             </View>
           <View style={styles.partidosContainer}>
             <Partido numero="1" fecha="24/4" puntos="34-12" equipos="Equipo 3 vs As.Ingenieros" />
@@ -69,12 +66,13 @@ const styles = StyleSheet.create({
     flex: 1, 
     backgroundColor: 'lightblue',
     padding: 10,
+    width: screenWidth,
   },
   bar: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    height: 20,
+    height: 34,
     width: screenWidth
   },
   container: {
@@ -83,13 +81,20 @@ const styles = StyleSheet.create({
     paddingTop: StatusBar.currentHeight,
   },
   header: {
-    width: '100%',
+    width: screenWidth,
     height: 40,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#fff',
     borderBottomWidth: 2,
     borderBottomColor: '#000',
+  },
+  header1:{
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  headerBar:{
+    width: screenWidth,
   },
   logContainer: {
     borderWidth: 2,
@@ -110,6 +115,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 16,
+    marginRight: 70
   },
   sectionTitle: {
     fontSize: 20,
@@ -140,5 +146,5 @@ const styles = StyleSheet.create({
   },
 });
 
-export default homeScreen
+export default HomeScreen
 

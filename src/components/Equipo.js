@@ -29,7 +29,9 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowRadius: 2,
     elevation: 5,
-    width: 100, // Ajusta según tus necesidades
+    width: 120, 
+    marginLeft: 5,
+    marginRight: 5
   },
   image: {
     width: 50,

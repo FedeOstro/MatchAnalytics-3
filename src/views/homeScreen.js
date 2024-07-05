@@ -1,18 +1,19 @@
 import * as React from 'react';
-import { StyleSheet, ScrollView, View, Text, StatusBar, Image, Button, Dimensions } from 'react-native';
+import { StyleSheet, ScrollView, View, Text, StatusBar, Image, Button, Dimensions} from 'react-native';
 import Equipo from '../components/Equipo';
 import Partido from '../components/Partido';
-
+import Header from '../components/Header';
 const { width: screenWidth } = Dimensions.get('window');
+
 
 const HomeScreen = ({navigation}) => {
   return (
       <View style={styles.container}>
-        <View style={styles.header1}>
-        <Image source={require('../images/header.png')} style={styles.headerBar}/>
-       </View>
+        <Header/>
         <ScrollView contentContainerStyle={styles.scrollContainer}>
-          <Text style={styles.welcome}>Bienvenido Federico!!</Text>
+            <View style={styles.flex}>
+              <Text style={styles.welcome}>Bienvenido Federico!!</Text>
+            </View>
           <View style={styles.bar}>
             <Image source={require('../images/BarraEquiposbarEquipo.png')} style={styles.barEquip}/>
           </View>
@@ -26,10 +27,11 @@ const HomeScreen = ({navigation}) => {
                 title="Añadir Equipo"
               />
             </View>
-            <View style={styles.vermas}>
-                <Button 
+            <View >
+                <Button style={styles.vermas}
+                  color={'#FF002E'}
                   title='Ver mas'
-                  onPress={navigation.navigate('verEquipo')}
+                  onPress={() => navigation.navigate('verEquipo')}
                 />
             </View>
             <View style={styles.bar}>
@@ -58,15 +60,24 @@ const HomeScreen = ({navigation}) => {
 
 
 const styles = StyleSheet.create({
-  vermas:{
-    backgroundColor: '#FF002E',
-    marginBottom: 10
+  flex: {
+    flexDirection: 'row',
+    alignItems: 'flex-start', 
+    padding: 10,
+    width: screenWidth
+  },
+  welcome: {
+    fontSize: 24,
+    color: 'black',
+    fontWeight: 'bold',
   },
   barEquip: {
     flex: 1, 
     backgroundColor: 'lightblue',
     padding: 10,
     width: screenWidth,
+    height: 33,
+    margin: 10
   },
   bar: {
     flex: 1,
@@ -80,29 +91,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffcc66',
     paddingTop: StatusBar.currentHeight,
   },
-  header: {
-    width: screenWidth,
-    height: 40,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#fff',
-    borderBottomWidth: 2,
-    borderBottomColor: '#000',
-  },
-  header1:{
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  headerBar:{
-    width: screenWidth,
-  },
-  logContainer: {
-    borderWidth: 2,
-    borderBottomColor: '#000',
-    borderRadius: 30,
-    marginTop: 20,
-    backgroundColor: '#fff',
-  },
   logo: {
     width: 60,
     height: 60,
@@ -110,12 +98,6 @@ const styles = StyleSheet.create({
   scrollContainer: {
     padding: 16,
     alignItems: 'center',
-  },
-  welcome: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 16,
-    marginRight: 70
   },
   sectionTitle: {
     fontSize: 20,

@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, Button } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+
 
 const Equipo = ({ nombre, press }) => {
   return (

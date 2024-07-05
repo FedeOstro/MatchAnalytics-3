@@ -18,7 +18,7 @@ const Partido = ({ numero, fecha, puntos, equipos }) => {
       <View>
       <TouchableOpacity style={styles.button}>
         <Image source={require('../images/flechaderecha.png')} style={styles.image} />
-        </TouchableOpacity> 
+      </TouchableOpacity> 
       </View>
     </View>
   );

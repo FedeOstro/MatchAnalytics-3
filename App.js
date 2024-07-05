@@ -11,7 +11,7 @@ function MyStack() {
   return (
     <NavigationContainer>
       <Stack.Navigator  initialRouteName="Home">
-        < Stack.Screen 
+        <Stack.Screen 
          name="Home"
          component={homeScreen}
         />

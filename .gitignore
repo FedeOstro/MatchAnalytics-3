@@ -4,7 +4,6 @@
 node_modules/
 
 # Expo
-.expo/
 dist/
 web-build/
 
@@ -14,7 +13,7 @@ web-build/
 *.p8
 *.p12
 *.key
-*.mobileprovision
+
 
 # Metro
 .metro-health-check*

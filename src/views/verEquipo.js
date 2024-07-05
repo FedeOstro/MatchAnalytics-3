@@ -5,6 +5,7 @@ import Partido from '../components/Partido';
 import Header from '../components/Header';
 const { height: screenHeight } = Dimensions.get('window');
 
+
 const TeamScreen = ({ navigation }) => {
     const players = [
         { id: '1', name: 'Juan Gutierrez', number: 1, value: 41, image: 'https://via.placeholder.com/50' },
@@ -16,37 +17,35 @@ const TeamScreen = ({ navigation }) => {
     ];
 
     return (
-        <View>
-          <Header/>
-          <ScrollView>
         <View style={styles.container}>
-            
-            <View style={styles.header}>
-                <Image source={require('../images/football.png')} style={styles.logo} />
-                <View>
-                    <Text style={styles.teamName}>Equipo 2</Text>
-                    <Text style={styles.sportType}>Deporte: Basquet</Text>
+            <View style={styles.headerApp}>
+            <Header />
+            </View>
+            <ScrollView contentContainerStyle={styles.scrollViewContent}>
+                <View style={styles.header}>
+                    <Image source={require('../images/football.png')} style={styles.logo} />
+                    <View>
+                        <Text style={styles.teamName}>Equipo 2</Text>
+                        <Text style={styles.sportType}>Deporte: Basquet</Text>
+                    </View>
                 </View>
-            </View>
-            <View style={styles.partidosContainer}>
-                <Partido numero="1" fecha="24/4" puntos="34-12" equipos="Equipo 3 vs As.Ingenieros" />
-                <Partido numero="2" fecha="20/3" puntos="3-1" equipos="Equipo 1 vs Dep.Tortugas" />
-                <Partido numero="3" fecha="12/2" puntos="92-80" equipos="Equipo 2 vs Dep.Puerrreydon" />
-            </View>
-            <Text style={styles.sectionTitle}>Jugadores</Text>
-            <View style={styles.playerListContainer}>
-                <ScrollView style={styles.playerList}>
-                    {players.map(player => (
-                        <PlayerItem key={player.id} player={player} />
-                    ))}
-                </ScrollView>
-            </View>
-            <TouchableOpacity style={styles.addButton}>
-                <Text style={styles.addButtonText}>Añadir Nuevo</Text>
-            </TouchableOpacity>
-            
-        </View>
-        </ScrollView>
+                <View style={styles.partidosContainer}>
+                    <Partido numero="1" fecha="24/4" puntos="34-12" equipos="Equipo 3 vs As.Ingenieros" />
+                    <Partido numero="2" fecha="20/3" puntos="3-1" equipos="Equipo 1 vs Dep.Tortugas" />
+                    <Partido numero="3" fecha="12/2" puntos="92-80" equipos="Equipo 2 vs Dep.Puerrreydon" />
+                </View>
+                <Text style={styles.sectionTitle}>Jugadores</Text>
+                <View style={styles.playerListContainer}>
+                    <ScrollView>
+                        {players.map(player => (
+                            <PlayerItem key={player.id} player={player} />
+                        ))}
+                    </ScrollView>
+                </View>
+                <TouchableOpacity style={styles.addButton}>
+                    <Text style={styles.addButtonText}>Añadir Nuevo</Text>
+                </TouchableOpacity>
+            </ScrollView>
         </View>
     );
 };
@@ -56,11 +55,18 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#F4C04E',
         padding: 10,
+        height: screenHeight,
+    },
+    scrollViewContent: {
+        flexGrow: 1,
     },
     header: {
         flexDirection: 'row',
         alignItems: 'center',
         marginBottom: 20,
+    },
+    headerApp:{
+        alignItems: 'center'
     },
     logo: {
         width: 60,
@@ -86,11 +92,8 @@ const styles = StyleSheet.create({
         marginVertical: 10,
     },
     playerListContainer: {
-        height: screenHeight * 0.4,
+        maxHeight: screenHeight * 0.4,
         marginBottom: 10,
-    },
-    playerList: {
-        flexGrow: 0,
     },
     addButton: {
         backgroundColor: '#007BFF',

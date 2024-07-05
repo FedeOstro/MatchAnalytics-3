@@ -4,6 +4,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import homeScreen from '../MatchAnalytics-3/src/views/homeScreen';
 import verEquipo from '../MatchAnalytics-3/src/views/verEquipo'
+import allEquipos from '../MatchAnalytics-3/src/views/allEquipos'
 
 const Stack = createNativeStackNavigator();
 
@@ -19,9 +20,21 @@ function MyStack() {
           name="verEquipo" 
           component={verEquipo}
         />
+        <Stack.Screen
+          name="allEquipo"
+          component={allEquipos}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
 };
 
 export default MyStack
+// {matches.map(match => (
+    //     <TouchableOpacity key={match.id} style={styles.matchItem}>
+    //       <Text>{match.opponent}</Text>
+    //       <Text>Fecha: {match.date}</Text>
+    //       <Text>Puntos: {match.score}</Text>
+    //       <Text>Val: {match.value}</Text>
+    //     </TouchableOpacity>
+    //   ))}

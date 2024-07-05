@@ -31,7 +31,7 @@ const HomeScreen = ({navigation}) => {
                 <Button style={styles.vermas}
                   color={'#FF002E'}
                   title='Ver mas'
-                  onPress={() => navigation.navigate('verEquipo')}
+                  onPress={() => navigation.navigate('allEquipo')}
                 />
             </View>
             <View style={styles.bar}>

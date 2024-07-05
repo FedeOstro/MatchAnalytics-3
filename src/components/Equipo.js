@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, Button } from 'react-native';
-
+import { useNavigation } from '@react-navigation/native';
 
 const Equipo = ({ nombre, press }) => {
   return (
@@ -29,9 +29,8 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowRadius: 2,
     elevation: 5,
-    width: 120, 
-    marginLeft: 5,
-    marginRight: 5
+    width: 120,
+    margin:3
   },
   image: {
     width: 50,

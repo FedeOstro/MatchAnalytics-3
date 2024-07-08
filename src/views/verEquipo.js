@@ -53,9 +53,7 @@ const TeamScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#F4C04E',
-        padding: 10,
-        height: screenHeight,
+        backgroundColor: '#ffcc66',
     },
     scrollViewContent: {
         flexGrow: 1,
@@ -63,10 +61,11 @@ const styles = StyleSheet.create({
     header: {
         flexDirection: 'row',
         alignItems: 'center',
-        marginBottom: 20,
+        marginLeft:10
     },
     headerApp:{
-        alignItems: 'center'
+        alignItems: 'center',
+        height: 70
     },
     logo: {
         width: 60,
@@ -90,6 +89,7 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: 'bold',
         marginVertical: 10,
+        marginLeft: 10
     },
     playerListContainer: {
         maxHeight: screenHeight * 0.4,

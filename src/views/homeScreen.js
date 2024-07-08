@@ -9,7 +9,9 @@ const { width: screenWidth } = Dimensions.get('window');
 const HomeScreen = ({navigation}) => {
   return (
       <View style={styles.container}>
-        <Header/>
+        <View style={styles.header1}>
+          <Header/>
+        </View>
         <ScrollView contentContainerStyle={styles.scrollContainer}>
             <View style={styles.flex}>
               <Text style={styles.welcome}>Bienvenido Federico!!</Text>
@@ -18,9 +20,9 @@ const HomeScreen = ({navigation}) => {
             <Image source={require('../images/BarraEquiposbarEquipo.png')} style={styles.barEquip}/>
           </View>
           <View style={styles.equiposContainer}>
-            <Equipo nombre="Equipo 1" press={() => navigation.navigate('verEquipo')}/>
-            <Equipo nombre="Equipo 2" press={() => navigation.navigate('verEquipo')}/>
-            <Equipo nombre="Equipo 3" press={() => navigation.navigate('verEquipo')}/>
+            <Equipo nombre="Equipo 1" press={() => navigation.navigate('verEquipo')} deporte="football"/>
+            <Equipo nombre="Equipo 2" press={() => navigation.navigate('verEquipo')} deporte="basquet"/>
+            <Equipo nombre="Equipo 3" press={() => navigation.navigate('verEquipo')} deporte="cestoball"/>
           </View>
             <View style={styles.addButton}>
               <Button 
@@ -48,8 +50,10 @@ const HomeScreen = ({navigation}) => {
             />
           </View>
           <View style={styles.vermas}>
-                <Button
+                <Button style={styles.vermas}
+                  color={'#FF002E'}
                   title='Ver mas'
+                  onPress={() => navigation.navigate('allEquipo')}
                 />
             </View>
         </ScrollView>
@@ -126,6 +130,10 @@ const styles = StyleSheet.create({
     width: '100%',
     marginTop: 10,
   },
+  header1: {
+    alignItems: 'center',
+    height: 70
+  }
 });
 
 export default HomeScreen

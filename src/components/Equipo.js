@@ -2,10 +2,20 @@ import React from 'react';
 import { View, Text, StyleSheet, Image, Button } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-const Equipo = ({ nombre, press }) => {
+const Equipo = ({ nombre, press, deporte }) => {
+  let imageSource;
+
+  if (deporte === 'football') {
+    imageSource = require('../images/football.png');
+  } else if (deporte === 'basquet') {
+    imageSource = require('../images/basque.png');
+  } else if (deporte === 'cestoball') {
+    imageSource = require('../images/cesto.png');
+  }
+  
   return (
     <View style={styles.equipoContainer}>
-      <Image source={require('../images/football.png')} style={styles.image} />
+      <Image source={imageSource} style={styles.image} />
       <Text style={styles.nombre}>{nombre}</Text>
       <View style={styles.buttonContainer}>
         <Button

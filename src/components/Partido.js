@@ -37,6 +37,9 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowRadius: 2,
     elevation: 5,
+    marginLeft: 10,
+    marginRight: 10,
+    
   },
   iconContainer: {
     justifyContent: 'center',

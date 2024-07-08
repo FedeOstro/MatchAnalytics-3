@@ -22,7 +22,10 @@ const styles = StyleSheet.create({
     borderColor: '#ccc',
     backgroundColor: '#f0f0f0',
     shadowColor: '#000',
-    margin: 4,
+    marginLeft: 10,
+    marginRight: 10,
+    marginBottom: 4,
+    marginTop: 4,
     borderRadius: 10
   },
   image: {

@@ -4,4 +4,4 @@ const App = () => {
 
 }
 
-export default app
+export default App

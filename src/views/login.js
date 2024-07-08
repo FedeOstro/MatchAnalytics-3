@@ -4,4 +4,4 @@ function App ({navigation}) {
 
 }
 
-export default app
+export default App

@@ -5,6 +5,16 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import homeScreen from '../MatchAnalytics-3/src/views/homeScreen';
 import verEquipo from '../MatchAnalytics-3/src/views/verEquipo'
 import allEquipos from '../MatchAnalytics-3/src/views/allEquipos'
+import anotPartido from '../MatchAnalytics-3/src/views/anotPartido'
+import AllPartidos from './src/views/allPartidos';
+import crearEquipo from './src/views/crearEquipo'
+import crearPartido from './src/views/crearPartido.'
+import login from './src/views/login'
+import statsJugador from './src/views/statsJugador'
+import startJugadorxPartido from './src/views/statsJugadorxPartido'
+import statsPartido from './src/views/statsJugador'
+import verPartido from './src/views/verPartido'
+import ConfigAnot from './src/views/configAnot';
 
 const Stack = createNativeStackNavigator();
 
@@ -23,6 +33,46 @@ function MyStack() {
         <Stack.Screen
           name="allEquipo"
           component={allEquipos}
+        />
+        <Stack.Screen
+          name="anotarPartido"
+          component={anotPartido}
+        />
+        <Stack.Screen
+          name="AllPartidos"
+          component={AllPartidos}
+        />
+        <Stack.Screen
+          name="crearEquipo"
+          component={crearEquipo}
+        />
+        <Stack.Screen
+          name="crearPartido"
+          component={crearPartido}
+        />
+        <Stack.Screen
+          name="login"
+          component={login}
+        />
+        <Stack.Screen
+          name="statsJugador"
+          component={statsJugador}
+        />
+        <Stack.Screen
+          name="startJugadorxPartido"
+          component={startJugadorxPartido}
+        />
+        <Stack.Screen
+          name="statsPartido"
+          component={statsPartido}
+        />
+        <Stack.Screen
+          name="verPartido"
+          component={verPartido}
+        />
+        <Stack.Screen
+          name="ConfigAnot"
+          component={ConfigAnot}
         />
       </Stack.Navigator>
     </NavigationContainer>

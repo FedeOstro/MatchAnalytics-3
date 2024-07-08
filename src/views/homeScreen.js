@@ -44,11 +44,22 @@ const HomeScreen = ({navigation}) => {
             <Partido numero="2" fecha="20/3" puntos="3-1" equipos="Equipo 1 vs Dep.Tortugas" />
             <Partido numero="3" fecha="12/2" puntos="92-80" equipos="Equipo 2 vs Dep.Puerrreydon" />
           </View>
-          <View style={styles.addButton}>
-            <Button 
-              title="Anotar"
-            />
+          <View style={styles.contButtons}>
+            <View style={styles.buttons}>
+              <View style={styles.addButton}>
+                <Button 
+                 title="Anotar"
+                  onPress={() => navigation.navigate('ConfigAnot')}
+                />
+              </View>
+              <View style={styles.addButton}>
+                <Button
+                  title="Crear"
+                  onPress={() => navigation.navigate('crearPartido')}
+                />
+            </View>
           </View>
+    </View>
           <View style={styles.vermas}>
                 <Button style={styles.vermas}
                   color={'#FF002E'}
@@ -80,14 +91,13 @@ const styles = StyleSheet.create({
     backgroundColor: 'lightblue',
     padding: 10,
     width: screenWidth,
-    height: 33,
+    height: 23,
     margin: 10
   },
   bar: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    height: 34,
     width: screenWidth
   },
   container: {
@@ -120,7 +130,18 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     borderRadius: 5,
     marginTop: 10,
-    marginBottom: 10
+    marginBottom: 10,
+    marginHorizontal: 10,
+  },
+  contButtons: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginVertical: 10
+  },
+  buttons: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   addText: {
     color: 'white',

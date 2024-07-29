@@ -60,8 +60,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'flex-start',
-    marginLeft: 10,
-    marginRight: 10
+    marginLeft: 17,
   },
   equipoWrapper: {
     marginBottom: 15,

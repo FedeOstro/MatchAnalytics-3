@@ -6,45 +6,17 @@ import Header from '../components/Header';
 const { width: screenWidth } = Dimensions.get('window');
 
 const ConfigAnot = ({ navigation }) => {
-  const [step, setStep] = useState(1);
   const [partido, setPartido] = useState('');
   const [duracion, setDuracion] = useState('');
   const [entretiempo, setEntretiempo] = useState('');
   const [tiempos, setTiempos] = useState('');
 
-  const nextStep = () => {
-    if (validateStep()) {
-      setStep(prevStep => prevStep + 1);
-    } else {
-      Alert.alert('Advertencia', 'Por favor, completa el campo antes de continuar.');
-    }
-  };
-
-  const validateStep = () => {
-    switch (step) {
-      case 1:
-        return partido !== '';
-      case 2:
-        return duracion !== '';
-      case 3:
-        return entretiempo !== '';
-      case 4:
-        return tiempos !== '';
-      default:
-        return false;
-    }
-  };
-
-  const handlePartidoChange = (value) => {
-    setPartido(value);
-    nextStep();
-  };
-
   const handleButtonPress = () => {
-    if (validateStep()) {
+    if (partido !== '' && duracion !== '' && entretiempo !== '' && tiempos !== '' &&
+        Number(duracion) >= 0 && Number(entretiempo) >= 0 && Number(tiempos) >= 0) {
       navigation.navigate('anotarPartido');
     } else {
-      Alert.alert('Advertencia', 'Por favor, completa todos los campos antes de continuar.');
+      Alert.alert('Advertencia', 'Por favor, completa todos los campos correctamente antes de continuar. Asegúrate de que ningún campo tenga un valor menor a 0.');
     }
   };
 
@@ -52,68 +24,56 @@ const ConfigAnot = ({ navigation }) => {
     <View style={styles.container}>
       <Header />
       <View style={styles.formWrapper}>
+        <Text style={styles.title}>¡Configura Tu Partido!</Text>
         <View style={styles.formContainer}>
-          {step >= 1 && (
-            <View style={styles.inputGroup}>
-              <Text>Partido:</Text>
-              <Picker
-                selectedValue={partido}
-                onValueChange={handlePartidoChange}
-                style={styles.picker}
-              >
-                <Picker.Item label="Selecciona equipo" value="" />
-                <Picker.Item label="Partido 1" value="Partido 1" />
-                <Picker.Item label="Partido 2" value="Partido 2" />
-                <Picker.Item label="Partido 3" value="Partido 3" />
-              </Picker>
-            </View>
-          )}
-          {step >= 2 && (
-            <View style={styles.inputGroup}>
-              <Text>Duración (minutos):</Text>
-              <TextInput
-                style={styles.input}
-                value={duracion}
-                onChangeText={setDuracion}
-                placeholder="Duración"
-                keyboardType="numeric"
-                onFocus={nextStep}
-              />
-            </View>
-          )}
-          {step >= 3 && (
-            <View style={styles.inputGroup}>
-              <Text>Entretiempo (minutos):</Text>
-              <TextInput
-                style={styles.input}
-                value={entretiempo}
-                onChangeText={setEntretiempo}
-                placeholder="Entretiempo"
-                keyboardType="numeric"
-                onFocus={nextStep}
-              />
-            </View>
-          )}
-          {step >= 4 && (
-            <View style={styles.inputGroup}>
-              <Text>Cantidad de tiempos:</Text>
-              <TextInput
-                style={styles.input}
-                value={tiempos}
-                onChangeText={setTiempos}
-                placeholder="Cantidad de tiempos"
-                keyboardType="numeric"
-                onFocus={nextStep}
-              />
-            </View>
-          )}
-          {step >= 4 && (
-            <View style={styles.buttonContainer}>
-              <Button title="EMPEZAR" onPress={handleButtonPress} />
-            </View>
-          )}
+          <View style={styles.inputGroup}>
+            <Text>Partido:</Text>
+            <Picker
+              selectedValue={partido}
+              onValueChange={setPartido}
+              style={styles.picker}
+            >
+              <Picker.Item label="Selecciona equipo" value="" />
+              <Picker.Item label="Partido 1" value="Partido 1" />
+              <Picker.Item label="Partido 2" value="Partido 2" />
+              <Picker.Item label="Partido 3" value="Partido 3" />
+            </Picker>
+          </View>
+          <View style={styles.inputGroup}>
+            <Text>Duración (minutos):</Text>
+            <TextInput
+              style={styles.input}
+              value={duracion}
+              onChangeText={setDuracion}
+              placeholder="Duración"
+              keyboardType="numeric"
+            />
+          </View>
+          <View style={styles.inputGroup}>
+            <Text>Entretiempo (minutos):</Text>
+            <TextInput
+              style={styles.input}
+              value={entretiempo}
+              onChangeText={setEntretiempo}
+              placeholder="Entretiempo"
+              keyboardType="numeric"
+            />
+          </View>
+          <View style={styles.inputGroup}>
+            <Text>Cantidad de tiempos:</Text>
+            <TextInput
+              style={styles.input}
+              value={tiempos}
+              onChangeText={setTiempos}
+              placeholder="Cantidad de tiempos"
+              keyboardType="numeric"
+            />
+          </View>
+          <View style={styles.buttonContainer}>
+            <Button title="EMPEZAR" onPress={handleButtonPress} />
+          </View>
         </View>
-      </View> 
+      </View>
     </View>
   );
 };
@@ -133,6 +93,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     padding: 20,
     borderRadius: 10,
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 30,
   },
   inputGroup: {
     marginBottom: 20,
